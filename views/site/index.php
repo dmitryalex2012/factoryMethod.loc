@@ -12,6 +12,7 @@ $this->title = 'My Yii Application';
 
         <h2>Pattern "Factory Method"</h2>
         <br>
+        <br>
 
         <?php
         echo Html::a("Select Facebook", ['face/poster_face'], ['class'=>'btn btn-lg btn-success']);
