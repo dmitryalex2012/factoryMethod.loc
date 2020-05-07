@@ -1,6 +1,6 @@
 <?php
 
-namespace app\commands\socials;
+namespace app\commands\network;
 
 
 class LinkedInConnector implements SocialNetworkConnector

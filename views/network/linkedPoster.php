@@ -1,10 +1,9 @@
 <?php
 
-use app\commands\socials\SocialNetworkPoster;
-use app\commands\socials\LinkedInPoster;
+use app\commands\network\SocialNetworkPoster;
+use app\commands\network\LinkedInPoster;
 
 /* @var $this yii\web\View */
-/* @var $temp string */
 
 $this->title = 'My Yii Application';
 ?>

@@ -1,6 +1,6 @@
 <?php
 
-namespace app\commands\socials;
+namespace app\commands\network;
 
 abstract class SocialNetworkPoster
 {
@@ -11,10 +11,11 @@ abstract class SocialNetworkPoster
     abstract public function getSocialNetwork();
 
     /**
-     * Когда фабричный метод используется внутри бизнес-логики Создателя,
-     * подклассы могут изменять логику косвенно, возвращая из фабричного метода
-     * различные типы коннекторов.
+     * Когда фабричный метод используется внутри бизнес-логики Создателя, подклассы могут изменять логику
+     * косвенно, возвращая из фабричного метода различные типы коннекторов.
      */
+    /* @param $content - need comment, because will appear WARNING */
+
     public function post($content)
     {
         // Вызываем фабричный метод для создания объекта Продукта...
@@ -25,3 +26,4 @@ abstract class SocialNetworkPoster
         $network->logout();
     }
 }
+

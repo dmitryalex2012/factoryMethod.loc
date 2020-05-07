@@ -1,9 +1,10 @@
 <?php
 
-namespace app\commands\socials;
+namespace app\commands\network;
 
 
 class FacebookConnector implements SocialNetworkConnector
+//class FacebookConnector
 {
     private $login, $password;
 
