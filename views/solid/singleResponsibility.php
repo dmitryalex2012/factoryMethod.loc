@@ -8,7 +8,7 @@ $this->title = 'My Yii Application';
 
     <div class="jumbotron">
 
-        <h3>Single responsibility</h3>
+        <h3>"Single responsibility" principle</h3>
         <br>
 
 

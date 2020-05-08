@@ -18,12 +18,12 @@ $this->title = 'My Yii Application';
             </div>
             <div class="col-lg-3">
                 <?php
-                echo Html::a("Select Facebook", ['face/poster_face'], ['class'=>'btn btn-lg btn-success']);
+                echo Html::a("Select Facebook", ['network/poster_face'], ['class'=>'btn btn-lg btn-success']);
                 ?>
             </div>
             <div class="col-lg-3">
                 <?php
-                echo Html::a("Select LinkedIn", ['linked/poster_linked'], ['class'=>'btn btn-lg btn-success']);
+                echo Html::a("Select LinkedIn", ['network/poster_linked'], ['class'=>'btn btn-lg btn-success']);
                 ?>
             </div>
             <div class="col-lg-3">
