@@ -24,6 +24,8 @@ body {
 .jumbotron {
     text-align: center;
     background-color: transparent;
+    /*margin: 0!important;*/
+    /*padding: 10px;*/
 }
 
 .jumbotron .btn {
@@ -95,6 +97,25 @@ a.desc:after {
     padding: 15px;
     border: none;
 }
+
+
+/*#w1{*/
+/*    flex-direction: row;*/
+/*}*/
+.container{
+    display: inline!important;
+}
+
+.navbar-brand{
+    padding: 15px!important;
+}
+
+.navbar-nav{
+    flex-direction: row!important;
+    font-size: 12px;
+}
+
+
 
 @media(max-width:767px) {
     .nav li > form > button.logout {

@@ -14,21 +14,22 @@ $this->title = 'My Yii Application';
 <!--        <br>-->
         <br>
         <div class="row">
-            <div class="col-lg-3">
-            </div>
-            <div class="col-lg-3">
+<!--            <div class="col-lg-3">-->
+<!--            </div>-->
+            <div class="col-lg-6">
                 <?php
                 echo Html::a("Select Facebook", ['network/poster_face'], ['class'=>'btn btn-lg btn-success']);
                 ?>
             </div>
-            <div class="col-lg-3">
+            <div class="col-lg-6">
                 <?php
                 echo Html::a("Select LinkedIn", ['network/poster_linked'], ['class'=>'btn btn-lg btn-success']);
                 ?>
             </div>
-            <div class="col-lg-3">
-            </div>
+<!--            <div class="col-lg-3">-->
+<!--            </div>-->
         </div>
+
 
         <br><br><br>
         <h2>"SOLID" principle</h2>
@@ -42,8 +43,8 @@ $this->title = 'My Yii Application';
         echo Html::a("D", ['solid/dependency_inversion'], ['class'=>'btn btn-lg btn-success']);
         ?>
 
-
-
     </div>
 
 </div>
+
+
