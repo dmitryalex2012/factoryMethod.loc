@@ -1,6 +1,11 @@
+h2{
+    font-size: xx-large!important;
+}
 
-
-.inputSolid1, .inputSolid2{
+#inputSolid1, #inputSolid2{
     font-size: medium;
     text-align: center;
+}
+.select, .submitSingle, .labelSingle{
+    font-size: medium;
 }
