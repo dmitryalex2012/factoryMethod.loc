@@ -6,6 +6,11 @@ h2{
     font-size: medium;
     text-align: center;
 }
-.select, .submitSingle, .labelSingle{
+
+#select{
+    font-size: medium;
+}
+
+.submitSingle, .labelSingle{
     font-size: medium;
 }

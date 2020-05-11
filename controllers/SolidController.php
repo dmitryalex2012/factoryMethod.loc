@@ -4,6 +4,7 @@ namespace app\controllers;
 
 
 use yii\web\Controller;
+use Yii;
 
 class SolidController extends Controller
 {
@@ -14,7 +15,8 @@ class SolidController extends Controller
 
     public function actionExecution()
     {
-        $myresult = 5;
-        return $myresult;
+        $temp = Yii::$app->request->post('sign');
+
+        return $temp;
     }
 }

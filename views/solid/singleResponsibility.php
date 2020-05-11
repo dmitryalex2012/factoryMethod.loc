@@ -1,6 +1,5 @@
 <?php
 
-
 /* @var $this yii\web\View */
 
 $this->title = 'My Yii Application';
@@ -16,29 +15,30 @@ $this->title = 'My Yii Application';
         <div class="row">
             <div class="col-lg-3">
                 <p>Input first digit:</p>
-<!--                <input class="inputSolid1" type="text" pattern="[0-9]{,5}" size="20">-->
-<!--                <input type="text" value="" class="inputSolid1">-->
-                <input type="text" size="20" id="inputSolid1">
+                <label for="inputSolid1"></label><input type="text" size="20" id="inputSolid1">
             </div>
 
             <div class="col-lg-2">
                 <p>Select action:</p>
-                <select class="select">
-                    <option>+</option>
-                    <option>-</option>
-                    <option>*</option>
-                    <option>/</option>
-                </select>
+                <label>
+                    <select id="select">
+                        <option value="+">+</option>
+                        <option value="-">-</option>
+                        <option value="*">*</option>
+                        <option value="/">/</option>
+                    </select>
+                </label>
             </div>
 
             <div class="col-lg-3">
                 <p>Input second digit:</p>
-                <input type="text" size="20" id="inputSolid2">
+<!--                <label>Input second digit:</label>-->
+                <label for="inputSolid2"></label><input type="text" size="20" id="inputSolid2">
             </div>
 
             <div class="col-lg-2">
                 <p>Equal</p>
-                <input class="submitSingle" type="button" value="Calculate"></input>
+                <input type="button" value="Calculate" class="submitSingle">
             </div>
 
             <div class="col-lg-2">
@@ -53,19 +53,16 @@ $calculation = <<<JS
     $('.submitSingle').on('click', function() {
         let firstDigit = Number(document.getElementById('inputSolid1').value);
         let secondDigit = Number(document.getElementById('inputSolid2').value);
-        console.log(firstDigit+secondDigit);
+        let sign = document.getElementById('select').value;
         
          $.ajax({
             url: '/solid/execution',
-            data: { firstDigit: firstDigit,
-                    secondDigit: secondDigit
-                    
-                  },
+            data: { firstDigit: firstDigit, secondDigit: secondDigit, sign: sign },
+            // dataType : 'text',
             type: 'POST',
             // success: function (purchaseType) {
-            success: function (myresult) {
-                console.log("Done")
-                console.log(myresult);
+            success: function (temp) {
+                console.log(temp);
                 // $('.purchaseTypeInTable').html("Способ оплаты: "+ purchaseType);   <!-- out new purchase type in table for customer -->
              },
             error: function () {
