@@ -58,11 +58,11 @@ $calculation = <<<JS
          $.ajax({
             url: '/solid/execution',
             data: { firstDigit: firstDigit, secondDigit: secondDigit, sign: sign },
-            // dataType : 'text',
+            // dataType: 'json',
             type: 'POST',
-            // success: function (purchaseType) {
             success: function (temp) {
                 console.log(temp);
+                // console.log(sign);
                 // $('.purchaseTypeInTable').html("Способ оплаты: "+ purchaseType);   <!-- out new purchase type in table for customer -->
              },
             error: function () {
