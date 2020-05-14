@@ -43,7 +43,7 @@ $this->title = 'My Yii Application';
 
             <div class="col-lg-2">
                 <p>Result:</p>
-                <label class="labelSingle"></label>
+                <label class="labelResult"></label>
             </div>
         </div>
 
@@ -60,10 +60,9 @@ $calculation = <<<JS
             data: { firstDigit: firstDigit, secondDigit: secondDigit, sign: sign },
             // dataType: 'json',
             type: 'POST',
-            success: function (temp) {
-                console.log(temp);
-                // console.log(sign);
-                // $('.purchaseTypeInTable').html("Способ оплаты: "+ purchaseType);   <!-- out new purchase type in table for customer -->
+            success: function (result) {
+                console.log(result);
+                $('.labelResult').html(result);   <!-- out new purchase type in table for customer -->
              },
             error: function () {
                 console.log ("Failed");

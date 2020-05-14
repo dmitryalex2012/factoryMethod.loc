@@ -11,6 +11,7 @@ h2{
     font-size: medium;
 }
 
-.submitSingle, .labelSingle{
+.submitSingle, .labelResult{
     font-size: medium;
+    font-weight: normal;
 }

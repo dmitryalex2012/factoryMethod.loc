@@ -26,8 +26,6 @@ $this->title = 'My Yii Application';
                 echo Html::a("Select LinkedIn", ['network/poster_linked'], ['class'=>'btn btn-lg btn-success']);
                 ?>
             </div>
-<!--            <div class="col-lg-3">-->
-<!--            </div>-->
         </div>
 
 
