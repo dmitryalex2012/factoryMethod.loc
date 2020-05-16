@@ -2,6 +2,10 @@ h2{
     font-size: xx-large!important;
 }
 
+.jumbotron{
+    padding: 40px 10px!important;
+}
+
 #inputSolid1, #inputSolid2{
     font-size: medium;
     text-align: center;
@@ -11,7 +15,22 @@ h2{
     font-size: medium;
 }
 
-.submitSingle, .labelResult{
+/*.submitSingle, .labelResult{*/
+/*    font-size: medium;*/
+/*    font-weight: normal;*/
+/*}*/
+
+.labelResult{
     font-size: medium;
     font-weight: normal;
+}
+
+.submitSingle{
+    font-size: medium;
+    font-weight: normal;
+}
+
+#save{
+    font-size: medium;
+    font-weight: 400;
 }

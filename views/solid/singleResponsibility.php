@@ -1,6 +1,7 @@
 <?php
 
 /* @var $this yii\web\View */
+/* @var $selectorSOLID string */
 
 $this->title = 'My Yii Application';
 ?>
@@ -9,13 +10,12 @@ $this->title = 'My Yii Application';
     <div class="jumbotron">
 
         <h2>"Single responsibility" principle</h2>
-        <br>
+        <br><br>
 
-        <br>
         <div class="row">
             <div class="col-lg-3">
                 <p>Input first digit:</p>
-                <label for="inputSolid1"></label><input type="text" size="20" id="inputSolid1">
+                <label for="inputSolid1"></label><input type="text" size="15" id="inputSolid1">
             </div>
 
             <div class="col-lg-2">
@@ -32,8 +32,8 @@ $this->title = 'My Yii Application';
 
             <div class="col-lg-3">
                 <p>Input second digit:</p>
-<!--                <label>Input second digit:</label>-->
-                <label for="inputSolid2"></label><input type="text" size="20" id="inputSolid2">
+                <!--                <label>Input second digit:</label>-->
+                <label for="inputSolid2"></label><input type="text" size="15" id="inputSolid2">
             </div>
 
             <div class="col-lg-2">
@@ -41,28 +41,55 @@ $this->title = 'My Yii Application';
                 <input type="button" value="Calculate" class="submitSingle">
             </div>
 
-            <div class="col-lg-2">
+            <div class="col-lg-1">
                 <p>Result:</p>
                 <label class="labelResult"></label>
+            </div>
+
+            <div class="col-lg-1">
+                <?php
+                if ($selectorSOLID === "open"):
+                    ?>
+                    <p>Saving:</p>
+                    <label>
+                        <select id="save">
+                            <option value="File">File</option>
+                            <option value="DB">DB</option>
+                        </select>
+                    </label>
+                <?php endif;
+                ?>
             </div>
         </div>
 
 
-<?php
-$calculation = <<<JS
+        <?php
+        $calculation = <<<JS
     $('.submitSingle').on('click', function() {
         let firstDigit = Number(document.getElementById('inputSolid1').value);
         let secondDigit = Number(document.getElementById('inputSolid2').value);
         let sign = document.getElementById('select').value;
+        let savePointer = 0;
+        let selectorSOLID = '<?php echo $selectorSOLID; ?>'; 
+        let pointerURL = '/solid/execution_single';
         
+        if (selectorSOLID === "open") {
+            savePointer = document.getElementById('save').value;
+            pointerURL = '/solid/execution_open';
+        }
+
          $.ajax({
-            url: '/solid/execution',
-            data: { firstDigit: firstDigit, secondDigit: secondDigit, sign: sign },
+            url: pointerURL,
+            data: { firstDigit: firstDigit, secondDigit: secondDigit, sign: sign, savePointer: savePointer },
             // dataType: 'json',
             type: 'POST',
             success: function (result) {
                 console.log(result);
                 $('.labelResult').html(result);   <!-- out new purchase type in table for customer -->
+                
+                console.log(pointerURL);
+                console.log(selectorSOLID);
+                
              },
             error: function () {
                 console.log ("Failed");
@@ -70,8 +97,8 @@ $calculation = <<<JS
         });
     })
 JS;
-$this->registerJs($calculation);
-?>
+        $this->registerJs($calculation);
+        ?>
 
     </div>
 </div>
