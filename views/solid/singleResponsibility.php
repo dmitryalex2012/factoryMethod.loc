@@ -63,24 +63,27 @@ $this->title = 'My Yii Application';
         </div>
 
 
+        <div class='hidden' data-name='<?= $selectorSOLID ?>'>
+        </div>
+
         <?php
         $calculation = <<<JS
     $('.submitSingle').on('click', function() {
-        let firstDigit = Number(document.getElementById('inputSolid1').value);
+        let firstDigit  = Number(document.getElementById('inputSolid1').value);
         let secondDigit = Number(document.getElementById('inputSolid2').value);
-        let sign = document.getElementById('select').value;
-        let savePointer = 0;
-        let selectorSOLID = '<?php echo $selectorSOLID; ?>'; 
+        let sign        = document.getElementById('select').value;
+        let storagePointer = 0;
         let pointerURL = '/solid/execution_single';
-        
+        let selectorSOLID = $('div.hidden').data('name');
+
         if (selectorSOLID === "open") {
-            savePointer = document.getElementById('save').value;
+            storagePointer = document.getElementById('save').value;
             pointerURL = '/solid/execution_open';
         }
 
          $.ajax({
             url: pointerURL,
-            data: { firstDigit: firstDigit, secondDigit: secondDigit, sign: sign, savePointer: savePointer },
+            data: { firstDigit: firstDigit, secondDigit: secondDigit, sign: sign, savePointer: storagePointer },
             // dataType: 'json',
             type: 'POST',
             success: function (result) {

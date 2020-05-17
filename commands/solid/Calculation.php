@@ -1,13 +1,15 @@
 <?php
 
-namespace app\commands\single_responsibility;
+namespace app\commands\solid;
+use app\commands\solid\singleResponsibility\SRLogger;
+
 
 class Calculation
 {
     public $result;
     public $logger;
 
-    public function __construct(Logger $argument)
+    public function __construct(SRLogger $argument)
     {
         $this->logger = $argument;
     }
@@ -35,7 +37,7 @@ class Calculation
     {
         if (($second == 0) && ($sign == "/")) {
             $saving = $first . $sign . $second . "=" . "error";
-            $this->logger->saveToFile("results.txt", $saving);
+            $this->logger->saveToFile("errors.txt", $saving);
             $this->result = "error";
         } else {
             $this->calculation($first, $second, $sign);
@@ -44,7 +46,7 @@ class Calculation
         return $this->result;
     }
 
-    public function calculateOpen($first, $second, $sign)
+    public function calculateOpen($first, $second, $sign, $storagePointer)
     {
         if (($second == 0) && ($sign == "/")) {
             $this->result = "error";
