@@ -9,6 +9,7 @@ use app\commands\solid\singleResponsibility\SRLogger;
 use app\commands\solid\openClosed\FileLogger;
 use app\commands\solid\openClosed\DBLogger;
 
+
 class SolidController extends Controller
 {
     public function actionSingle_responsibility()
@@ -29,13 +30,14 @@ class SolidController extends Controller
 
     public function actionExecution_single()
     {
-        $takeDigits = new TakeDigits();
-
-        $newClass = new SRLogger();
-        $calculation = new Calculation($newClass);
-        $result = $calculation->calculateSingle($takeDigits->takeFirstDigit(), $takeDigits->takeSecondDigit(), $takeDigits->takeSign());
-
-        return $result;
+//        $takeDigits = new TakeDigits();     // get data, that VIEW send
+//
+//        $newClass = new SRLogger();
+//        $calculation = new Calculation($newClass);
+//        $result = $calculation->calculateSingle($takeDigits->takeFirstDigit(), $takeDigits->takeSecondDigit(), $takeDigits->takeSign());
+//
+//        return $result;
+        return 5;
     }
 
 
@@ -43,15 +45,18 @@ class SolidController extends Controller
     {
         $takeDigits = new TakeDigits();
 
-        $abstractClass = new FileLogger();
-        if (($takeDigits->takeStoragePointer()) === "DB"){
-            $abstractClass = new DBLogger();
-        }
-        $calculation = new Calculation($abstractClass);
-        $result = $calculation->calculateOpen($takeDigits->takeFirstDigit(), $takeDigits->takeSecondDigit(),
-            $takeDigits->takeSign(), $takeDigits->takeStoragePointer());
+//        $abstractClass = new FileLogger();
+//        if (($takeDigits->takeStoragePointer()) === "DB"){
+//            $abstractClass = new DBLogger();
+//        }
+//        $calculation = new Calculation($abstractClass);
 
+                    $calculation = new Calculation();
+
+        $result = $calculation->calculateOpen($takeDigits->takeFirstDigit(), $takeDigits->takeSecondDigit(),
+                                                    $takeDigits->takeSign(), $takeDigits->takeStoragePointer());
         return $result;
+//        return 5;
     }
 
 }

@@ -1,3 +1,4 @@
-5+5=10
-5*5=25
-5/0=error
+1+2=3Mon, 18 May 2020 15:52:52 +0300 (Single responsibility principle)
+3*3=9  Mon, 18 May 2020 15:54:18 +0300 (Single responsibility principle)
+1+2=3  Mon, 18 May 2020 16:32:34 +0300 (Single responsibility principle)
+1+1=2  Mon, 18 May 2020 16:38:08 +0300 (Single responsibility principle)

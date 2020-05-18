@@ -72,27 +72,25 @@ $this->title = 'My Yii Application';
         let firstDigit  = Number(document.getElementById('inputSolid1').value);
         let secondDigit = Number(document.getElementById('inputSolid2').value);
         let sign        = document.getElementById('select').value;
+        
         let storagePointer = 0;
         let pointerURL = '/solid/execution_single';
-        let selectorSOLID = $('div.hidden').data('name');
-
-        if (selectorSOLID === "open") {
-            storagePointer = document.getElementById('save').value;
+        let selectorSOLID = $('div.hidden').data('name');           <!-- indicates "open/close" or "single respon." -->
+                                                                    <!--         principle are chosen in index page -->
+        if (selectorSOLID === "open") {                             <!-- Is the "open/close" or "single respon." principle are chosen? -->
+            storagePointer = document.getElementById('save').value; <!-- storage place (file or DB) pointer -->
             pointerURL = '/solid/execution_open';
         }
-
+                        // pointerURL = '/solid/execution_open';
+                        // storagePointer = 'File';
          $.ajax({
             url: pointerURL,
-            data: { firstDigit: firstDigit, secondDigit: secondDigit, sign: sign, savePointer: storagePointer },
+            data: { firstDigit: firstDigit, secondDigit: secondDigit, sign: sign, storagePointer: storagePointer },
             // dataType: 'json',
             type: 'POST',
             success: function (result) {
                 console.log(result);
-                $('.labelResult').html(result);   <!-- out new purchase type in table for customer -->
-                
-                console.log(pointerURL);
-                console.log(selectorSOLID);
-                
+                $('.labelResult').html(result);     <!-- out result -->
              },
             error: function () {
                 console.log ("Failed");

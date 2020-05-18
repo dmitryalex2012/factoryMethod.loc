@@ -34,7 +34,7 @@ $this->title = 'My Yii Application';
         <br>
 
         <?php
-        echo Html::a("S", ['solid/solid'], ['class'=>'btn btn-lg btn-success']);
+        echo Html::a("S", ['solid/single_responsibility'], ['class'=>'btn btn-lg btn-success']);
         echo Html::a("O", ['solid/open_closed'], ['class'=>'btn btn-lg btn-success']);
         echo Html::a("L", ['solid/lisced'], ['class'=>'btn btn-lg btn-success']);
         echo Html::a("I", ['solid/interface_segregation'], ['class'=>'btn btn-lg btn-success']);

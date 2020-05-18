@@ -2,33 +2,51 @@
 
 namespace app\commands\solid\openClosed;
 
+interface ILogger
+{
+    public function log ($first, $second, $sign, $result);
+}
+
 
 class FileLogger implements ILogger
 {
-    public function SaveToFile ($file, $temp)
+    public function SaveToFile ($first, $second, $sign, $result)
     {
-        file_put_contents($file, $temp . PHP_EOL, FILE_APPEND);
+        if ($result === "error"){
+            $fileName = "errors.txt";
+        } else{
+            $fileName = "results.txt";
+        }
+        $saving = $first . $sign . $second . "=" . $result ."  " . date('r') . " (Open/closed principle)";
+        file_put_contents($fileName, $saving . PHP_EOL, FILE_APPEND);
+
     }
 
-    public function log($message)
+    public function log($first, $second, $sign, $result)
     {
-        $this->SaveToFile("results.txt", $message);
+        $this->SaveToFile($first, $second, $sign, $result);
     }
-
 }
 
 
 class DBLogger implements ILogger
 {
-    public function SaveToDB ($temp)
+    public function SaveToDB ($first, $second, $sign, $result)
     {
-        $temp1 = $temp;     //  need save to DB
-//        file_put_contents($file, $temp . PHP_EOL, FILE_APPEND);
+//        if ($result === "error"){
+//            $fileName = "errors.txt";
+//        } else{
+//            $fileName = "results.txt";
+//        }
+        $fileName = "errors.txt";
+
+        $saving = $first . $sign . $second . "=" . $result ."  " . date('r') . " (Open/closed principle + DB)";
+        file_put_contents($fileName, $saving . PHP_EOL, FILE_APPEND);
     }
 
-    public function log($message)
+    public function log($first, $second, $sign, $result)
     {
-        $this->SaveToDB($message);
+        $this->SaveToDB($first, $second, $sign, $result);
     }
 
 }

@@ -2,7 +2,7 @@
 
 namespace app\commands\solid\openClosed;
 
-interface ILogger
+interface ILogger1
 {
-    public function log ($message);
+    public function log ($first, $second, $sign, $result);
 }
