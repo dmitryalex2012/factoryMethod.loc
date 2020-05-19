@@ -1,1 +1,4 @@
 3/0=error  Mon, 18 May 2020 15:54:49 +0300 (Single responsibility principle)
+2/0=error  Tue, 19 May 2020 18:33:12 +0300 (Single responsibility principle)
+5/0=error  Tue, 19 May 2020 18:33:50 +0300 (Open/closed principle)
+2+7=9  Tue, 19 May 2020 18:36:21 +0300 (Open/closed principle + DB)

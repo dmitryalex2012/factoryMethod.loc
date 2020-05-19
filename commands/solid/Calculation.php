@@ -4,7 +4,6 @@ namespace app\commands\solid;
 
 use app\commands\solid\openClosed\DBLogger;
 use app\commands\solid\openClosed\FileLogger;
-use app\commands\solid\openClosed\ILogger;
 use app\commands\solid\singleResponsibility\SRLogger;
 
 
@@ -14,28 +13,13 @@ class Calculation
     public $logger;
 
 //    public function __construct(ILogger $argument)
-    public function __construct()
+    public function __construct($argument)
     {
-//        $temp =  new SRLogger();
-//        $temp =  new FileLogger();
-//        $temp = $argument;
-
-
-//        switch ($argument){
-//            case "new SRLogger()":      $temp = new SRLogger();     break;
-//            case "new FileLogger()":    $temp = new FileLogger();   break;
-//            case "new DBLogger()":      $temp = new DBLogger();     break;
-
-//            case "new FileLogger()":    $this->logger = new FileLogger();   break;
-//            case "new SRLogger()":      $this->logger = new SRLogger();     break;
-//            case "new DBLogger()":      $this->logger = new DBLogger();     break;
-//        }
-
-//        $this->logger = $temp;
-//        $this->logger = $argument;
-
-                        $this->logger = new FileLogger();
-
+        switch ($argument){
+            case "FileLogger":    $this->logger = new FileLogger();   break;
+            case "DBLogger":      $this->logger = new DBLogger();     break;
+            case "SRLogger":      $this->logger = new SRLogger();     break;
+        }
     }
 
     private function calculation($first, $second, $sign)
@@ -71,17 +55,17 @@ class Calculation
     }
 
 
-    public function calculateOpen($first, $second, $sign, $storagePointer)
+    public function calculateOpen($first, $second, $sign)
     {
-//        if (($second == 0) && ($sign == "/")) {
-//            $this->result = "error";
-//        } else {
-//            $this->calculation($first, $second, $sign);
-//        }
-//
-//        $this->logger->log($first, $second, $sign, $this->result);
-//
-//        return $this->result;
-        return 5;
+        if (($second == 0) && ($sign == "/")) {
+            $this->result = "error";
+        } else {
+            $this->calculation($first, $second, $sign);
+        }
+
+        $this->logger->log($first, $second, $sign, $this->result);
+
+        return $this->result;
+//        return 5;
     }
 }
