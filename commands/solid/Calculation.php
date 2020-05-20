@@ -10,6 +10,7 @@ use app\commands\solid\singleResponsibility\SRLogger;
 class Calculation
 {
     public $result;
+    public $saving;
     public $logger;
 
 //    public function __construct(ILogger $argument)
@@ -38,18 +39,27 @@ class Calculation
                 $this->result = $first / $second;
                 break;
         }
+
+        $this->saving = $first . $sign . $second . "=" . $this->result;
+    }
+
+
+    private function checkOnZero ($first, $second, $sign)
+    {
+        if (($second == 0) && ($sign == "/")) {
+            $this->result = "error";
+            $this->saving = $first . $sign . $second . "=" . $this->result;
+        } else {
+            $this->calculation($first, $second, $sign);
+        }
     }
 
 
     public function calculateSingle($first, $second, $sign)
     {
-        if (($second == 0) && ($sign == "/")) {
-            $this->result = "error";
-        } else {
-            $this->calculation($first, $second, $sign);
-        }
+        $this->checkOnZero($first, $second, $sign);
 
-        $this->logger->save($first, $second, $sign, $this->result);
+        $this->logger->save($this->saving, $this->result);
 
         return $this->result;
     }
@@ -57,15 +67,10 @@ class Calculation
 
     public function calculateOpen($first, $second, $sign)
     {
-        if (($second == 0) && ($sign == "/")) {
-            $this->result = "error";
-        } else {
-            $this->calculation($first, $second, $sign);
-        }
+        $this->checkOnZero($first, $second, $sign);
 
-        $this->logger->log($first, $second, $sign, $this->result);
+        $this->logger->log($this->saving, $this->result);
 
         return $this->result;
-//        return 5;
     }
 }

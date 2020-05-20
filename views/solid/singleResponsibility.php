@@ -9,7 +9,12 @@ $this->title = 'My Yii Application';
 
     <div class="jumbotron">
 
-        <h2>"Single responsibility" principle</h2>
+        <?php if ($selectorSOLID === "open") {
+            echo "<h2>\"Open/closed\" principle</h2>";
+        } else {
+            echo "<h2>\"Single responsibility\" principle</h2>";
+        }
+        ?>
         <br><br>
 
         <div class="row">
@@ -89,8 +94,8 @@ $this->title = 'My Yii Application';
             // dataType: 'json',
             type: 'POST',
             success: function (result) {
-                console.log(result);
                 $('.labelResult').html(result);     <!-- out result -->
+                console.log(result);
              },
             error: function () {
                 console.log ("Failed");

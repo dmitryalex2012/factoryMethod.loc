@@ -12,7 +12,7 @@ class m200519_193756_DBlogger extends Migration
      */
     public function safeUp()
     {
-        $this->createTable("DBLogger", [
+        $this->createTable("DBLoggerModel", [
             "Id" => $this->primaryKey(),
             "Data" => $this->string(),
             "Time" => $this->string(),
@@ -26,23 +26,8 @@ class m200519_193756_DBlogger extends Migration
      */
     public function safeDown()
     {
-        echo "m200519_193756_DBlogger cannot be reverted.\n";
+        echo "m200519_193756_loggerDB cannot be reverted.\n";
 
         return false;
     }
-
-    /*
-    // Use up()/down() to run migration code without a transaction.
-    public function up()
-    {
-
-    }
-
-    public function down()
-    {
-        echo "m200519_193756_DBlogger cannot be reverted.\n";
-
-        return false;
-    }
-    */
 }

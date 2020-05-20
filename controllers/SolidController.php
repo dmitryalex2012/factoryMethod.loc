@@ -41,21 +41,15 @@ class SolidController extends Controller
     {
         $takeDigits = new TakeDigits();
 
-//        $abstractClass = new FileLogger();
-        $abstractClass = "FileLogger";
-
+        $typeLogger = "FileLogger";
         if (($takeDigits->takeStoragePointer()) === "DB"){
-            $abstractClass = "DBLogger";
+            $typeLogger = "DBLogger";
         }
-        $calculation = new Calculation($abstractClass);
+        $calculation = new Calculation($typeLogger);
         $result = $calculation->calculateOpen($takeDigits->takeFirstDigit(), $takeDigits->takeSecondDigit(), $takeDigits->takeSign());
-
-
 //        http://127.0.0.1/openserver/phpmyadmin/index.php
 
-
         return $result;
-//        return $abstractClass;
     }
 
 }
