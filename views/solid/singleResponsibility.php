@@ -25,7 +25,7 @@ $this->title = 'My Yii Application';
 
             <div class="col-lg-2">
                 <p>Select action:</p>
-                <label>
+                <label>                 <!-- the "select" outputs an error without "label"  -->
                     <select id="select">
                         <option value="+">+</option>
                         <option value="-">-</option>
@@ -37,7 +37,6 @@ $this->title = 'My Yii Application';
 
             <div class="col-lg-3">
                 <p>Input second digit:</p>
-                <!--                <label>Input second digit:</label>-->
                 <label for="inputSolid2"></label><input type="text" size="15" id="inputSolid2">
             </div>
 
@@ -79,15 +78,14 @@ $this->title = 'My Yii Application';
         let sign        = document.getElementById('select').value;
         
         let storagePointer = 0;
-        let pointerURL = '/solid/execution_single';
+        let pointerURL = '/execution/single';
         let selectorSOLID = $('div.hidden').data('name');           <!-- indicates "open/close" or "single respon." -->
                                                                     <!--         principle are chosen in index page -->
         if (selectorSOLID === "open") {                             <!-- Is the "open/close" or "single respon." principle are chosen? -->
             storagePointer = document.getElementById('save').value; <!-- storage place (file or DB) pointer -->
-            pointerURL = '/solid/execution_open';
+            pointerURL = '/execution/open';
         }
-                        // pointerURL = '/solid/execution_open';
-                        // storagePointer = 'File';
+        
          $.ajax({
             url: pointerURL,
             data: { firstDigit: firstDigit, secondDigit: secondDigit, sign: sign, storagePointer: storagePointer },

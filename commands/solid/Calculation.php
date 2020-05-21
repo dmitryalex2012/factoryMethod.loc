@@ -13,10 +13,9 @@ class Calculation
     public $saving;
     public $logger;
 
-//    public function __construct(ILogger $argument)
     public function __construct($argument)
-    {
-        switch ($argument){
+    {                                   // Need ILoggger for argument in __construct.
+        switch ($argument){             //          Example: public function __construct(ILogger $argument)
             case "FileLogger":    $this->logger = new FileLogger();   break;
             case "DBLogger":      $this->logger = new DBLogger();     break;
             case "SRLogger":      $this->logger = new SRLogger();     break;

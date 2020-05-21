@@ -3,8 +3,6 @@
 namespace app\controllers;
 
 use yii\web\Controller;
-use app\commands\solid\Calculation;
-use app\commands\solid\TakeDigits;
 
 
 class SolidController extends Controller
@@ -24,32 +22,8 @@ class SolidController extends Controller
         ]);
     }
 
-
-    public function actionExecution_single()
+    public function actionLiskov()
     {
-        $takeDigits = new TakeDigits();     // get data, that VIEW send
-
-        $newClass = "SRLogger";
-        $calculation = new Calculation($newClass);
-        $result = $calculation->calculateSingle($takeDigits->takeFirstDigit(), $takeDigits->takeSecondDigit(), $takeDigits->takeSign());
-
-        return $result;
+        return $this->render('liskov');
     }
-
-
-    public function actionExecution_open()
-    {
-        $takeDigits = new TakeDigits();
-
-        $typeLogger = "FileLogger";
-        if (($takeDigits->takeStoragePointer()) === "DB"){
-            $typeLogger = "DBLogger";
-        }
-        $calculation = new Calculation($typeLogger);
-        $result = $calculation->calculateOpen($takeDigits->takeFirstDigit(), $takeDigits->takeSecondDigit(), $takeDigits->takeSign());
-//        http://127.0.0.1/openserver/phpmyadmin/index.php
-
-        return $result;
-    }
-
 }
