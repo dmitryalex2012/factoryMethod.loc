@@ -26,20 +26,20 @@ $this->title = 'My Yii Application';
 
                 <div class="col-sm-3">
                     <div class="makeWidth">
-                    <?php
-                    switch ($i) {
-                        case 1:
-                            echo "<input type=\"button\" value=\"Duck\" class=\"btn btn-success btn-lg btn-block\">";
+                        <?php
+                        switch ($i) {
+                            case 1:
+                                echo "<input type=\"button\" value=\"Duck\" class=\"btn btn-success btn-lg btn-block\">";
 //                            echo Html::a("Duck", ['liskov/parameters'], ['class' => 'btn btn-success btn-lg btn-block']);
-                            break;
-                        case 2:
-                            echo "<input type=\"button\" value=\"Penguin\" class=\"btn btn-success btn-lg btn-block\">";
-                            break;
-                        case 3:
-                            echo "<input type=\"button\" value=\"Eagle\" class=\"btn btn-success btn-lg btn-block\">";
-                            break;
-                    }
-                    ?>
+                                break;
+                            case 2:
+                                echo "<input type=\"button\" value=\"Penguin\" class=\"btn btn-success btn-lg btn-block\">";
+                                break;
+                            case 3:
+                                echo "<input type=\"button\" value=\"Eagle\" class=\"btn btn-success btn-lg btn-block\">";
+                                break;
+                        }
+                        ?>
                     </div>
                 </div>
 

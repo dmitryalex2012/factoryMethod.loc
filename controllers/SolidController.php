@@ -22,6 +22,7 @@ class SolidController extends Controller
         ]);
     }
 
+
     public function actionLiskov()
     {
         return $this->render('liskov');
