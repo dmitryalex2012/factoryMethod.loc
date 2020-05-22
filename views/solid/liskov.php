@@ -1,12 +1,15 @@
 <?php
 
-use yii\helpers\Html;
-
 /* @var $this yii\web\View */
 /* @var $temp array */
 
 $this->title = 'My Yii Application';
 ?>
+
+<!-- ***************************************************************************************************** -->
+<!-- ********* THIS PAGE IS NOT ADAPTIVE. BAD DISPLAYING INFORMATION FOR RESOLUTION < 620 PIXELS ********* -->
+<!-- ***************************************************************************************************** -->
+
 <div class="site-index">
 
     <div class="jumbotron">
@@ -17,23 +20,73 @@ $this->title = 'My Yii Application';
 
         <div class="row">
 
-            <div class="col-lg-4">
-                <?php
-//                echo Html::a("Select Facebook", ['network/poster_face'], ['class'=>'btn btn-lg btn-success']);
-                echo Html::a("Duck", ['#'], ['class'=>'btn btn-lg btn-success']);
+            <?php
+            for ($i = 0; $i <= 3; $i++):
                 ?>
+
+                <div class="col-sm-3">
+                    <div class="makeWidth">
+                    <?php
+                    switch ($i) {
+                        case 1:
+                            echo "<input type=\"button\" value=\"Duck\" class=\"btn btn-success btn-lg btn-block\">";
+//                            echo Html::a("Duck", ['liskov/parameters'], ['class' => 'btn btn-success btn-lg btn-block']);
+                            break;
+                        case 2:
+                            echo "<input type=\"button\" value=\"Penguin\" class=\"btn btn-success btn-lg btn-block\">";
+                            break;
+                        case 3:
+                            echo "<input type=\"button\" value=\"Eagle\" class=\"btn btn-success btn-lg btn-block\">";
+                            break;
+                    }
+                    ?>
+                    </div>
+                </div>
+
+            <?php
+            endfor;
+            ?>
+
+        </div>
+
+
+        <div class="flySpeed row">
+
+            <div class="col-sm-3">
+                <label>Fly speed:</label>
             </div>
 
-            <div class="col-lg-4">
-                <?php
-                echo Html::a("Penguin", ['#'], ['class'=>'btn btn-lg btn-success']);
-                ?>
+            <div class="duckFlySpeed col-sm-3">
+                <label></label>
             </div>
 
-            <div class="col-lg-4">
-                <?php
-                echo Html::a("Eagle", ['#'], ['class'=>'btn btn-lg btn-success']);
-                ?>
+            <div class="penguinFlySpeed col-sm-3">
+                <label></label>
+            </div>
+
+            <div class="eagleFlySpeed col-sm-3">
+                <label></label>
+            </div>
+
+        </div>
+
+
+        <div class="swimSpeed row">
+
+            <div class="col-sm-3">
+                <label>Swim speed:</label>
+            </div>
+
+            <div class="duckSwimSpeed col-sm-3">
+                <label></label>
+            </div>
+
+            <div class="penguinSwimSpeed col-sm-3">
+                <label></label>
+            </div>
+
+            <div class="eagleSwimSpeed col-sm-3">
+                <label></label>
             </div>
 
         </div>

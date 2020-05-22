@@ -67,8 +67,8 @@ $this->title = 'My Yii Application';
         </div>
 
 
-        <div class='hidden' data-name='<?= $selectorSOLID ?>'>
-        </div>
+        <div class='hidden' data-name='<?= $selectorSOLID ?>'>      <!-- Pass "$selectorSOLID" PHP parameter    -->
+        </div>                                                      <!--        to"selectorSOLID" JS parameter  -->
 
         <?php
         $calculation = <<<JS
