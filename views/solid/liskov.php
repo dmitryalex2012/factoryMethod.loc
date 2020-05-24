@@ -37,7 +37,6 @@ $this->title = 'My Yii Application';
                         switch ($i) {
                             case 1:
                                 echo "<input type=\"button\" value=\"Duck\" class=\"btn btn-success btn-lg btn-block\" id='1'>";
-//                            echo Html::a("Duck", ['liskov/parameters'], ['class' => 'btn btn-success btn-lg btn-block']);
                                 break;
                             case 2:
                                 echo "<input type=\"button\" value=\"Penguin\" class=\"btn btn-success btn-lg btn-block\" id='2'>";
@@ -63,15 +62,15 @@ $this->title = 'My Yii Application';
                 <label>Fly speed:</label>
             </div>
 
-            <div class="DuckFlySpeed col-sm-3">
+            <div class="parameter col-sm-3" id="DuckFlySpeed">
                 <label></label>
             </div>
 
-            <div class="PenguinFlySpeed col-sm-3">
+            <div class="parameter col-sm-3" id="PenguinFlySpeed">
                 <label></label>
             </div>
 
-            <div class="EagleFlySpeed col-sm-3">
+            <div class="parameter col-sm-3" id="EagleFlySpeed">
                 <label></label>
             </div>
 
@@ -84,79 +83,54 @@ $this->title = 'My Yii Application';
                 <label>Swim speed:</label>
             </div>
 
-            <div class="DuckSwimSpeed col-sm-3">
+            <div class="parameter col-sm-3" id="DuckSwimSpeed">
                 <label></label>
             </div>
 
-            <div class="PenguinSwimSpeed col-sm-3">
-                <label></label>
+            <div class="parameter col-sm-3" id="PenguinSwimSpeed">
+                <label class="forDel"></label>
             </div>
 
-            <div class="EagleSwimSpeed col-sm-3">
+            <div class="parameter col-sm-3" id="EagleSwimSpeed">
                 <label></label>
             </div>
 
         </div>
-
-        <label class="LiskovMassage">Message</label>
+        <label class="LiskovMassage"></label>
 
         <?php
         $Liskov = <<<JS
 
-        function clearBirdLabel (){
-            // $('.LiskovMassage').html("");
-            $(".DuckFlySpeed").html("");
-            $(".PenguinFlySpeed").html("");
-            $(".EagleFlySpeed").html("");
-            $(".DuckSwimSpeed").html("");
-            $(".PenguinSwimSpeed").html("");
-            $(".EagleSwimSpeed").html("");
-        }
-
-
         $('.btn').on('click', function (){
             let pressedButton = this.value;
+            
+            let messageClass = '.LiskovMassage';
             
             $.ajax({
             url: '/liskov/parameters',
             data: {selectedBird: pressedButton},
             type: 'POST',
-            success: function(birdParameters) {
-                clearBirdLabel();
-                birdParameters = JSON.parse(birdParameters);  <!-- convert JS string to JS object -->
-                $("." + pressedButton + "FlySpeed").html(birdParameters["flySpeed"]);
-                $("." + pressedButton + "SwimSpeed").html(birdParameters["swimSpeed"]);
-                
-                // $('.LiskovMassage').html("");
-                // birdParameters.forEach(function(value, key){
-                //     console.log(value);
-                // });
-                
-                $('.LiskovMassage').html('');
-                for (key in birdParameters) {
-                    if (birdParameters[key] == 'error'){
-                        $('.LiskovMassage').html('Barbara Liskov principle broken.');
-                    }
+            success: function(birdParameters) {                 <!-- receive "birdParameters" string -->
+                $(".parameter").empty();                        <!-- Delete last parameters -->
+
+                if (birdParameters.includes('error')){          <!-- "includes" search substring in string not in array -->
+                    $(messageClass).html('Barbara Liskov principle broken.');
+                } else {
+                    $(messageClass).html('');
                 }
                 
-                // console.log(birdParameters.includes('error'));
-                // console.log(birdParameters.find(error));
-                
-                // if ((birdParameters.includes('error')) == true){
-                //     $('.LiskovMassage').html('Barbara Liskov principle broken.');
-                // } else {
-                //     $('.LiskovMassage').html('');
-                // }
-            },            
+                birdParameters = JSON.parse(birdParameters);    <!-- Convert "birdParameters" JS string to JS object -->
+                $("#" + pressedButton + "FlySpeed").html(birdParameters["flySpeed"]);   <!-- Output current         -->
+                $("#" + pressedButton + "SwimSpeed").html(birdParameters["swimSpeed"]); <!--            parameters  -->
+            },
             error: function() {
               console.log("Failed");
             }
-            })
-        })
+        });
+    })
 JS;
         $this->registerJs($Liskov);
         ?>
-
 
     </div>
 </div>

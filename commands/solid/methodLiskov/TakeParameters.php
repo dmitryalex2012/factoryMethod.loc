@@ -22,7 +22,6 @@ class TakeParameters
             'flySpeed'  => $this->flySpeed,
             'swimSpeed' => $this->swimSpeed
         ];
-//        return $this->swimSpeed;
     }
 }
 

@@ -27,15 +27,7 @@ class LiskovController extends Controller
         $result = $newBird->takeParameters();
 
         $result = json_encode($result);
-//        $temp[0] = 55;
-//        $temp[1] = 56;
-//        $result = json_encode($temp);
 
-//        return [
-//            'flySpeed'  => $result [0],
-//            'swimSpeed' => $result [1]
-//        ];
         return $result;
-//        return $selectedBird;
     }
 }
