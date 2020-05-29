@@ -27,4 +27,10 @@ class SolidController extends Controller
     {
         return $this->render('liskov');
     }
+
+
+    public function actionInterface_segregation()
+    {
+        return$this->render('interfaceSegregation');
+    }
 }
