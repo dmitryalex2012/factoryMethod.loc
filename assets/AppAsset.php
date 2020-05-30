@@ -22,7 +22,8 @@ class AppAsset extends AssetBundle
     public $css = [
         'css/site.css',
         'css/singleResponsibility.css',
-        'css/liskov.css'
+        'css/liskov.css',
+        'css/interfaceSegregation.css'
     ];
     public $js = [
     ];

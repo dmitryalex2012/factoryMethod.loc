@@ -1,0 +1,17 @@
+h3 {
+    margin: 30px 0 40px !important;
+}
+
+.makeWidth {
+    width: 200px;
+    margin: auto;
+}
+
+/*.flySpeed, .swimSpeed {*/
+/*    font-size: medium;*/
+/*    margin: 30px 0;*/
+/*}*/
+
+/*.LiskovMassage{*/
+/*    font-size: medium;*/
+/*}*/
