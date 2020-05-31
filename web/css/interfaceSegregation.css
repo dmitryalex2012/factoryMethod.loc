@@ -1,17 +1,25 @@
-h3 {
-    margin: 30px 0 40px !important;
+h2 {
+    margin: 20px 0 60px !important;
+}
+
+h3{
+    font-size: x-large!important;
 }
 
 .makeWidth {
-    width: 200px;
-    margin: auto;
+    width: 220px;
+    margin: 20px auto 20px;
 }
 
-/*.flySpeed, .swimSpeed {*/
-/*    font-size: medium;*/
-/*    margin: 30px 0;*/
-/*}*/
+.messageStyle {
+    margin: 20px 0;
+    font-size: large;
+}
 
-/*.LiskovMassage{*/
-/*    font-size: medium;*/
-/*}*/
+.messageWord{
+    text-align: right;
+}
+
+.messageContainer{
+    text-align: left;
+}

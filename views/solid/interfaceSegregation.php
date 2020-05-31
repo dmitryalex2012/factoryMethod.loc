@@ -6,16 +6,17 @@
 $this->title = 'My Yii Application';
 ?>
 
-<!-- ***************************************************************************************************** -->
-<!-- ********* THIS PAGE IS NOT ADAPTIVE. BAD DISPLAYING INFORMATION FOR RESOLUTION < 620 PIXELS ********* -->
-<!-- ***************************************************************************************************** -->
+<!-- ****************************************** -->
+<!-- ********* THIS PAGE IS ADAPTIVE. ********* -->
+<!-- ****************************************** -->
 
 <div class="site-index">
 
     <div class="jumbotron">
 
-        <h2>"Interface segregation" principle</h2>;
+        <h2>"Interface segregation" principle</h2>
 
+        <h3>Select transformer type:</h3>
 
         <div class="row">
 
@@ -23,15 +24,15 @@ $this->title = 'My Yii Application';
             for ($i = 0; $i <= 3; $i++):
                 ?>
 
-                <div class="col-sm-3">
+                <div class="col-xl-3 col-lg-6 col-md-12">
                     <div class="makeWidth">
                         <?php
                         switch ($i) {
                             case 0:
-                                echo "<input type=\"button\" value=\"Car transformer\" class=\"btn btn-success btn-lg btn-block\" id='1'>";
+                                echo "<input type=\"button\" value=\"Plane transformer\" class=\"btn btn-success btn-lg btn-block\" id='1'>";
                                 break;
                             case 1:
-                                echo "<input type=\"button\" value=\"Plane transformer\" class=\"btn btn-success btn-lg btn-block\" id='2'>";
+                                echo "<input type=\"button\" value=\"Car transformer\" class=\"btn btn-success btn-lg btn-block\" id='2'>";
                                 break;
                             case 2:
                                 echo "<input type=\"button\" value=\"Ship transformer\" class=\"btn btn-success btn-lg btn-block\" id='3'>";
@@ -50,33 +51,29 @@ $this->title = 'My Yii Application';
 
         </div>
 
+        <div class="messageStyle row">
+            <div class="messageWord col-4">
+                <label>Message:</label>
+            </div>
+
+            <div class="messageContainer col-8">
+                <label class="messageLabel"></label>
+            </div>
+        </div>
+
 
         <?php
         $ISP = <<<JS
-
         $('.btn').on('click', function (){
             let pressedButton = this.value;
             
-            // let messageClass = '.LiskovMassage';
-            
             $.ajax({
             url: '/isp/parameters',
-            data: {selectedBird: pressedButton},
+            data: {transformType: pressedButton},
             type: 'POST',
-            success: function(transformerParameters) {                 <!-- receive "birdParameters" string -->
-            
+            success: function(transformerParameters) {                  <!-- receive "transformerParameters" string -->
                 console.log(transformerParameters);
-                // $(".parameter").empty();                        <!-- Delete last parameters -->
-                //
-                // if (birdParameters.includes('error')){          <!-- "includes" search substring in string not in array -->
-                //     $(messageClass).html('Barbara Liskov principle broken.');
-                // } else {
-                //     $(messageClass).html('');
-                // }
-                //
-                // birdParameters = JSON.parse(birdParameters);    <!-- Convert "birdParameters" JS string to JS object -->
-                // $("#" + pressedButton + "FlySpeed").html(birdParameters["flySpeed"]);   <!-- Output current         -->
-                // $("#" + pressedButton + "SwimSpeed").html(birdParameters["swimSpeed"]); <!--            parameters  -->
+                $(".messageLabel").html(transformerParameters);         <!-- output transformer parameter-->
             },
             error: function() {
               console.log("Failed");
