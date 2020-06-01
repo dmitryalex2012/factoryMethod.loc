@@ -31,6 +31,12 @@ class SolidController extends Controller
 
     public function actionInterface_segregation()
     {
-        return$this->render('interfaceSegregation');
+        return $this->render('interfaceSegregation');
+    }
+
+
+    public function actionDependency_inversion ()
+    {
+        return $this->render('dependency_inversion');
     }
 }
