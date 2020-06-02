@@ -16,29 +16,23 @@ $this->title = 'My Yii Application';
 
         <h2>"Dependency inversion" principle</h2>
 
-        <h3>Select transformer type:</h3>
+        <h3>Choose food:</h3>
 
         <div class="row">
 
             <?php
-            for ($i = 0; $i <= 3; $i++):
+            for ($i = 0; $i <= 1; $i++):
                 ?>
 
-                <div class="col-xl-3 col-lg-6 col-md-12">
-                    <div class="makeWidth">
+                <div class="col-lg-6 col-sm-6">
+                    <div class="buttonGroupWidth">
                         <?php
                         switch ($i) {
                             case 0:
-                                echo "<input type=\"button\" value=\"Plane transformer\" class=\"btn btn-success btn-lg btn-block\" id='1'>";
+                                echo "<input type=\"button\" value=\"from home\" class=\"btn btn-success btn-lg btn-block\">";
                                 break;
                             case 1:
-                                echo "<input type=\"button\" value=\"Car transformer\" class=\"btn btn-success btn-lg btn-block\" id='2'>";
-                                break;
-                            case 2:
-                                echo "<input type=\"button\" value=\"Ship transformer\" class=\"btn btn-success btn-lg btn-block\" id='3'>";
-                                break;
-                            case 3:
-                                echo "<input type=\"button\" value=\"Super transformer\" class=\"btn btn-success btn-lg btn-block\" id='4'>";
+                                echo "<input type=\"button\" value=\"from restaurant\" class=\"btn btn-success btn-lg btn-block\">";
                                 break;
                         }
                         ?>
@@ -52,11 +46,11 @@ $this->title = 'My Yii Application';
         </div>
 
         <div class="messageStyle row">
-            <div class="messageWord col-4">
+            <div class="messageWord col-6">
                 <label>Message:</label>
             </div>
 
-            <div class="messageContainer col-8">
+            <div class="messageContainer col-6">
                 <label class="messageLabel"></label>
             </div>
         </div>
@@ -68,12 +62,12 @@ $this->title = 'My Yii Application';
             let pressedButton = this.value;
             
             $.ajax({
-            url: '/isp/parameters',
+            url: '/dependency_inversion/food',
             data: {transformType: pressedButton},
             type: 'POST',
             success: function(transformerParameters) {                  <!-- receive "transformerParameters" string -->
                 console.log(transformerParameters);
-                $(".messageLabel").html(transformerParameters);         <!-- output transformer parameter-->
+                // $(".messageLabel").html(transformerParameters);         <!-- output transformer parameter-->
             },
             error: function() {
               console.log("Failed");
