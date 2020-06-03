@@ -2,11 +2,11 @@
 
 namespace app\controllers;
 
-use Yii;
-use yii\web\Controller;
-
+use app\commands\solid\dependencyInversion\foodGetter;
 use app\commands\solid\dependencyInversion\Home;
 use app\commands\solid\dependencyInversion\Restaurant;
+use Yii;
+use yii\web\Controller;
 
 class Dependency_inversionController extends Controller
 {
@@ -14,16 +14,15 @@ class Dependency_inversionController extends Controller
     {
         $foodSelector = Yii::$app->request->post('pressedButton');
 
-        $kitchenType = "";
-        switch ($foodSelector) {
-            case "from home":
-                $kitchenType = new Home();
-                break;
-            case "from restaurant":
+        $kitchenType = new Home();
+        switch ($foodSelector) {                    // "Switch/case" allows to expand food manufacturers
+            case "from restaurant":                 //              (if it will be more then 2 in future).
                 $kitchenType = new Restaurant();
                 break;
         }
 
-        return $kitchenType;
+        $myFood = new foodGetter($kitchenType);
+
+            return $myFood->food();
     }
 }

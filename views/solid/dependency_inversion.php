@@ -29,10 +29,10 @@ $this->title = 'My Yii Application';
                         <?php
                         switch ($i) {
                             case 0:
-                                echo "<input type=\"button\" value=\"from home\" class=\"btn btn-success btn-lg btn-block\">";
+                                echo "<input type=\"button\" value=\"from home\" class=\"btn btn-success btn-lg btn-block\" id='1'>";
                                 break;
                             case 1:
-                                echo "<input type=\"button\" value=\"from restaurant\" class=\"btn btn-success btn-lg btn-block\">";
+                                echo "<input type=\"button\" value=\"from restaurant\" class=\"btn btn-success btn-lg btn-block\" id='2'>";
                                 break;
                         }
                         ?>
@@ -46,28 +46,27 @@ $this->title = 'My Yii Application';
         </div>
 
         <div class="messageStyle row">
-            <div class="messageWord col-6">
+            <div class="messageWord col-6">             <!-- only inscription "Message" -->
                 <label>Message:</label>
             </div>
 
-            <div class="messageContainer col-6">
+            <div class="messageContainer col-6">        <!-- selected food will output here -->
                 <label class="messageLabel"></label>
             </div>
         </div>
 
 
         <?php
-        $ISP = <<<JS
+        $DIP = <<<JS
         $('.btn').on('click', function (){
             let pressedButton = this.value;
             
             $.ajax({
             url: '/dependency_inversion/food',
-            data: {transformType: pressedButton},
+            data: {pressedButton: pressedButton},
             type: 'POST',
-            success: function(transformerParameters) {                  <!-- receive "transformerParameters" string -->
-                console.log(transformerParameters);
-                // $(".messageLabel").html(transformerParameters);         <!-- output transformer parameter-->
+            success: function(myFood) {                   <!-- receive "myFood" string -->
+                $(".messageLabel").html(myFood);          <!-- output my food parameter-->
             },
             error: function() {
               console.log("Failed");
@@ -75,7 +74,7 @@ $this->title = 'My Yii Application';
         });
     })
 JS;
-        $this->registerJs($ISP);
+        $this->registerJs($DIP);
         ?>
 
     </div>
