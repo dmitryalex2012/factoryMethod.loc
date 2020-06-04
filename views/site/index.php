@@ -13,15 +13,19 @@ $this->title = 'My Yii Application';
         <h2>Pattern "Factory Method"</h2>
         <br>
         <div class="row">
-            <div class="col-lg-6">
-                <?php
-                echo Html::a("Select Facebook", ['network/poster_face'], ['class'=>'btn btn-lg btn-success']);
-                ?>
+            <div class="col-sm-6">
+<!--                <div class="factoryMethodBtn">-->
+                    <?php
+                    echo Html::a("Select Facebook", ['network/poster_face'], ['class'=>'btn1 btn-lg btn-success']);
+                    ?>
+<!--                </div>-->
             </div>
-            <div class="col-lg-6">
-                <?php
-                echo Html::a("Select LinkedIn", ['network/poster_linked'], ['class'=>'btn btn-lg btn-success']);
-                ?>
+            <div class="col-sm-6">
+<!--                <div class="factoryMethodBtn">-->
+                    <?php
+                    echo Html::a("Select LinkedIn", ['network/poster_linked'], ['class'=>'btn1 btn-lg btn-success']);
+                    ?>
+<!--                </div>-->
             </div>
         </div>
 

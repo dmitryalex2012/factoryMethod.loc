@@ -31,7 +31,19 @@ body {
 .jumbotron .btn {
     font-size: 21px;
     padding: 14px 24px;
+    }
+
+
+/*.factoryMethodBtn{*/
+/*    margin: auto;*/
+/*    width: 150px!important;*/
+/*}*/
+.btn1{
+    /*margin: auto;*/
+    width: 50%;
+    /*height: 100px!important;*/
 }
+
 
 .not-set {
     color: #c55;
@@ -43,7 +55,7 @@ a.asc:after, a.desc:after {
     position: relative;
     top: 1px;
     display: inline-block;
-    font-family: 'Glyphicons Halflings';
+    font-family: 'Glyphicons Halflings', serif;
     font-style: normal;
     font-weight: normal;
     line-height: 1;
