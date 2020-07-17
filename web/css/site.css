@@ -127,7 +127,15 @@ a.desc:after {
     font-size: 12px;
 }
 
+.newButton{
+    width: 200px;
+    margin: auto;
+}
 
+.buttonPost{
+    width: 100px;
+    margin: auto!important;
+}
 
 @media(max-width:767px) {
     .nav li > form > button.logout {
