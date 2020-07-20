@@ -14,18 +14,12 @@ $this->title = 'My Yii Application';
         <br>
         <div class="row">
             <div class="col-sm-6">
-<!--                <div class="factoryMethodBtn">-->
-                    <?php
-                    echo Html::a("Select Facebook", ['network/poster_face'], ['class'=>'btn1 btn-lg btn-success']);
+                    <?php echo Html::a("Select Facebook", ['network/poster_face'], ['class'=>'btn1 btn-lg btn-success']);
                     ?>
-<!--                </div>-->
             </div>
             <div class="col-sm-6">
-<!--                <div class="factoryMethodBtn">-->
-                    <?php
-                    echo Html::a("Select LinkedIn", ['network/poster_linked'], ['class'=>'btn1 btn-lg btn-success']);
+                    <?php echo Html::a("Select LinkedIn", ['network/poster_linked'], ['class'=>'btn1 btn-lg btn-success']);
                     ?>
-<!--                </div>-->
             </div>
         </div>
 
@@ -44,14 +38,17 @@ $this->title = 'My Yii Application';
 
     </div>
 
-    <br>
-    <div class="newButton">
-<!--        <p class="newButton">ABC</p>-->
-        <?php
-        echo Html::a("Post", ['post/index'], ['class'=>'buttonPost btn btn-lg btn-success']);
-        ?>
-    </div>
+</div>
 
+<br>
+<div class="newButton">
+    <!--        <p class="newButton">ABC</p>-->
+    <!--        <div class="newButton1">-->
+                <?php
+                echo Html::a("Post", ['post/index'], ['class'=>'buttonPost btn btn-lg btn-success']);
+                ?>
+    <!--        </div>-->
+<!--    <button class="buttonPost">Press</button>-->
 </div>
 
 

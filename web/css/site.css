@@ -128,14 +128,14 @@ a.desc:after {
 }
 
 .newButton{
-    width: 200px;
-    margin: auto;
+    display: flex;
+    justify-content: center;
 }
 
 .buttonPost{
     width: 100px;
-    margin: auto!important;
 }
+
 
 @media(max-width:767px) {
     .nav li > form > button.logout {
