@@ -5,9 +5,13 @@ use Yii;
 use yii\web\Controller;
 use app\modules\admin\models\LoginForm;
 
-class AuthController extends Controller {
-
-    public function actionLogin() {
+class AuthController extends Controller
+{
+    /**
+     * @return string|\yii\web\Response
+     */
+    public function actionLogin()
+    {
         $model = new LoginForm();
         /*
          * Если пришли post-данные, загружаем их в модель...

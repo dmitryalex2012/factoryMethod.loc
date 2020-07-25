@@ -4,8 +4,15 @@ namespace app\modules\admin\controllers;
 use Yii;
 use yii\web\Controller;
 
-class AdminController extends Controller {
-
+class AdminController extends Controller
+{
+    /**
+     * @param $action
+     *
+     * @return bool
+     *
+     * @throws \yii\web\BadRequestHttpException
+     */
     public function beforeAction($action) {
         $session = Yii::$app->session;
         $session->open();
