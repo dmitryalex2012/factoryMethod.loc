@@ -2,7 +2,7 @@
 
 namespace app\modules\admin\models;
 
-use Yii;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "order".
@@ -19,21 +19,20 @@ use Yii;
  * @property string $created
  * @property string $updated
  */
-class Order extends \yii\db\ActiveRecord
+//class Order extends \yii\db\ActiveRecord
+class Order extends ActiveRecord
 {
     /**
      * {@inheritdoc}
      */
-    public static function tableName()
-    {
+    public static function tableName() {
         return 'order';
     }
 
     /**
      * {@inheritdoc}
      */
-    public function rules()
-    {
+    public function rules() {
         return [
             [['user_id', 'name', 'email', 'phone', 'address', 'comment', 'amount', 'status', 'created', 'updated'], 'required'],
             [['user_id', 'amount', 'status'], 'integer'],
@@ -46,8 +45,7 @@ class Order extends \yii\db\ActiveRecord
     /**
      * {@inheritdoc}
      */
-    public function attributeLabels()
-    {
+    public function attributeLabels() {
         return [
             'id' => 'ID',
             'user_id' => 'User ID',

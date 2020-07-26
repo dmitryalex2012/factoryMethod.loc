@@ -10,8 +10,7 @@ class AuthController extends Controller
     /**
      * @return string|\yii\web\Response
      */
-    public function actionLogin()
-    {
+    public function actionLogin() {
         $model = new LoginForm();
         /*
          * Если пришли post-данные, загружаем их в модель...
@@ -29,7 +28,7 @@ class AuthController extends Controller
                 }
             }
         }
-        return $this->render('login', ['model' => $model]);;
+        return $this->render('login', ['model' => $model]);
     }
 
     public function actionLogout() {
