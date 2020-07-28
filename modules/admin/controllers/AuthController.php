@@ -31,6 +31,9 @@ class AuthController extends Controller
         return $this->render('login', ['model' => $model]);
     }
 
+    /**
+     * @return \yii\web\Response
+     */
     public function actionLogout() {
         LoginForm::logout();
         return $this->redirect('/admin/auth/login');

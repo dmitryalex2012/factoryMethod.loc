@@ -42,14 +42,9 @@ $this->title = 'My Yii Application';
 
 <br>
 <div class="newButton">
-    <!--        <p class="newButton">ABC</p>-->
-    <!--        <div class="newButton1">-->
                 <?php
-//                echo Html::a("Post", ['post/index'], ['class'=>'buttonPost btn btn-lg btn-success']);
                 echo Html::a("Post", ['country/index'], ['class'=>'buttonPost btn btn-lg btn-success']);
                 ?>
-    <!--        </div>-->
-<!--    <button class="buttonPost">Press</button>-->
 </div>
 
 
