@@ -1,4 +1,4 @@
-<?php
+<?php /** @noinspection PhpUnhandledExceptionInspection */
 
 use yii\helpers\Html;
 use yii\grid\GridView;
