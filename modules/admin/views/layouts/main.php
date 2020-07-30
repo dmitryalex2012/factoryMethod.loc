@@ -1,12 +1,14 @@
-<?php
+<?php /** @noinspection PhpUnhandledExceptionInspection */
 /* @var $this \yii\web\View */
 /* @var $content string */
 
+use app\widgets\Alert;
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\helpers\Url;
 use app\assets\AppAsset;
+use yii\widgets\Breadcrumbs;
 
 AppAsset::register($this);
 ?>
@@ -59,6 +61,12 @@ AppAsset::register($this);
     </header>
 
     <div class="container">
+
+        <?= Breadcrumbs::widget([
+            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+        ]) ?>
+        <?= Alert::widget() ?>
+
         <?= $content; ?>
     </div>
 

@@ -2,7 +2,9 @@
 
 namespace app\modules\admin\models;
 
+use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
+use yii\db\Expression;
 
 /**
  * This is the model class for table "order".
@@ -60,4 +62,23 @@ class Order extends ActiveRecord
             'updated' => 'Updated',
         ];
     }
+
+    /**
+     * @return array
+     */
+    public function behaviors() {
+        return [
+            [
+                'class' => TimestampBehavior::class,
+                'attributes' => [
+                    // при обновлении существующей записи присвоить атрибуту
+                    // updated значение метки времени UNIX
+                    ActiveRecord::EVENT_BEFORE_UPDATE => ['updated'],
+                ],
+                // если вместо метки времени UNIX используется DATETIME
+                'value' => new Expression('NOW()'),
+            ],
+        ];
+    }
+
 }

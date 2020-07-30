@@ -12,6 +12,18 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
+    <?php
+        $items = [
+            0 => 'Новый',
+            1 => 'Обработан',
+            2 => 'Оплачен',
+            3 => 'Доставлен',
+            4 => 'Завершен',
+        ];
+    ?>
+
+    <?= $form->field($model, 'status')->dropDownList($items) ?>
+
     <?= $form->field($model, 'user_id')->textInput() ?>
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
@@ -24,13 +36,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'comment')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'amount')->textInput() ?>
+    <?= $form->field($model, 'amount')->textInput(['readonly' => true]) ?>
 
-    <?= $form->field($model, 'status')->textInput() ?>
+    <?= $form->field($model, 'created')->textInput(['readonly' => true]) ?>
 
-    <?= $form->field($model, 'created')->textInput() ?>
-
-    <?= $form->field($model, 'updated')->textInput() ?>
+    <?= $form->field($model, 'updated')->textInput(['readonly' => true]) ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
